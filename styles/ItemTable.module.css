@@ -1,0 +1,20 @@
+.table {
+  box-shadow: 0 0 5px 0 rgba(15, 15, 15, 0.65);
+  border: 1px solid rgb(0, 60, 125);
+  min-width: 80%;
+  max-width: 1200px;
+  border-radius: 5px;
+}
+
+.thead {
+  color: rgb(0, 170, 170);
+}
+
+.tr {
+  background: rgb(15, 15, 15);
+}
+
+.tr td {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
