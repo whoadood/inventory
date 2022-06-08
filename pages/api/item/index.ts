@@ -73,7 +73,5 @@ export default async function handler(
     },
   });
 
-  console.log(newItem);
-
   res.status(200).json({ item: newItem });
 }
