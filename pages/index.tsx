@@ -1,9 +1,11 @@
-import type { NextPage } from 'next'
+import type { NextPage, GetServerSideProps } from 'next'
+import prisma from '../lib/prisma'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-const Home: NextPage = () => {
+const Home = ({ items }: { items: any}) => {
+  console.log(items)
   return (
     <div className={styles.container}>
       <Head>
@@ -67,6 +69,30 @@ const Home: NextPage = () => {
       </footer>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const items = await prisma.itemInfo.findMany({
+    select: {
+      id: true,
+      price: true,
+      working: true,
+      Brand: true,
+      Comment: true,
+      Location: true,
+      Item: {
+        select: {
+          name: true,
+          Category: true
+        }
+      }
+    }
+  });
+  return {
+    props: {
+      items
+    }
+  }
 }
 
 export default Home
