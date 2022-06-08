@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Brand {
+  id       Int        @id @default(autoincrement())
+  name     String     @unique
+  website  String
+  ItemInfo ItemInfo[]
+}
+
+model Category {
+  id   Int    @id @default(autoincrement())
+  type String @unique
+  Item Item[]
+}
+
+model Comment {
+  id       Int        @id @default(autoincrement())
+  userId   Int
+  text     String
+  User     User       @relation(fields: [userId], references: [id])
+  ItemInfo ItemInfo[]
+}
+
+model Item {
+  id         Int        @id @default(autoincrement())
+  name       String     @unique
+  categoryId Int
+  Category   Category   @relation(fields: [categoryId], references: [id])
+  ItemInfo   ItemInfo[]
+}
+
+model ItemInfo {
+  id            Int       @id @default(autoincrement())
+  price         Float
+  working       Boolean
+  purchaseDate  DateTime  @default(now())
+  lastUsed      DateTime?
+  lastUserId    Int?      @unique
+  itemDetailsId Int
+  brandId       Int
+  locationId    Int
+  commentId     Int?
+  Brand         Brand     @relation(fields: [brandId], references: [id])
+  Comment       Comment?  @relation(fields: [commentId], references: [id])
+  Item          Item      @relation(fields: [itemDetailsId], references: [id])
+  User          User?     @relation(fields: [lastUserId], references: [id])
+  Location      Location  @relation(fields: [locationId], references: [id])
+}
+
+model Location {
+  id       Int        @id @default(autoincrement())
+  name     String     @unique
+  address  String
+  ItemInfo ItemInfo[]
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  email    String    @unique
+  name     String
+  password String
+  Comment  Comment[]
+  ItemInfo ItemInfo?
+}
