@@ -53,16 +53,16 @@ export default function NewItemForm() {
         />
         <InputDetails
           details={[
-            { name: "location 1" },
-            { name: "location 2" },
-            { name: "location 3" },
+            { id: 1, name: "location 1", website: "website" },
+            { id: 2, name: "location 2", website: "website" },
+            { id: 3, name: "location 3", website: "website" },
           ]}
         />
         <InputDetails
           details={[
-            { name: "location 1" },
-            { name: "location 2" },
-            { name: "location 3" },
+            { id: 1, name: "location 1", website: "website" },
+            { id: 2, name: "location 2", website: "website" },
+            { id: 3, name: "location 3", website: "website" },
           ]}
         />
         <FormItemSection

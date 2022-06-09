@@ -1,15 +1,19 @@
 import React from "react";
 import CheckBoxStyles from "../styles/ItemDetailsCheckBox.module.css";
 
-export default function ItemDetailsCheckBox() {
+export default function ItemDetailsCheckBox({
+  item,
+}: {
+  item: { id: number; name: string; website: string };
+}) {
   return (
     <div className={CheckBoxStyles.boxContainer}>
       <h4 className={CheckBoxStyles.id}>
         <div className={CheckBoxStyles.details}>
-          <span>itemName</span>
-          <span className={CheckBoxStyles.accent}>itemType</span>
+          <span>{item.name}</span>
+          <span className={CheckBoxStyles.accent}>{item.website}</span>
         </div>
-        <span>id</span>
+        <span>{item.id}</span>
       </h4>
     </div>
   );
