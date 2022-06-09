@@ -2,13 +2,13 @@ import React from "react";
 import type { IServerItem } from "../pages";
 import tableStyles from "../styles/ItemTable.module.css";
 
-export default function TableHead({ items }: { items: IServerItem[] }) {
+export default function TableHead({ headers }: { headers: string[] }) {
   return (
     <thead className={tableStyles.thead}>
-      <tr className={tableStyles.tr}>
-        {Object.keys(items[0]).map(
+      <tr>
+        {headers.map(
           (key) =>
-            key !== "Comment" && key !== "working" && <td key={key}>{key}</td>
+            key !== "Comment" && key !== "working" && <th key={key}>{key}</th>
         )}
       </tr>
     </thead>

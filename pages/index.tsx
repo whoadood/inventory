@@ -1,7 +1,7 @@
 import type { GetServerSideProps } from "next";
 import prisma from "../lib/prisma";
 import Head from "next/head";
-import { Brand, Category } from "@prisma/client";
+import { Brand, Category, Location } from "@prisma/client";
 import ItemTable from "../components/ItemTable";
 
 export type IServerItem = {

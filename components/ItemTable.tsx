@@ -2,19 +2,18 @@ import React from "react";
 import tableStyles from "../styles/ItemTable.module.css";
 import TableHead from "./TableHead";
 import type { IServerItem } from "../pages";
+import ItemRow from "./ItemRow";
 
 export default function ItemTable({ items }: { items: IServerItem[] }) {
   console.log(items);
-
+  const headers = ["id", "item", "type", "location", "price"];
   return (
     <table className={tableStyles.table}>
-      <TableHead items={items} />
+      <TableHead headers={headers} />
       <tbody>
-        <tr className={tableStyles.tr}>
-          <td>row 1</td>
-          <td>row 2</td>
-          <td>row 3</td>
-        </tr>
+        {items.map((item) => (
+          <ItemRow item={item} key={item.id} />
+        ))}
       </tbody>
     </table>
   );

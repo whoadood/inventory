@@ -5,9 +5,9 @@ import Navlink from "./Navlink";
 export default function Footer() {
   return (
     <footer className={footerStyles.footer}>
-      <Navlink href={"/Item"} title={"items"} />
-      <Navlink href={"/Item"} title={"items"} />
-      <Navlink href={"/Item"} title={"items"} />
+      <Navlink href={"/Items"} title={"Items"} />
+      <Navlink href={"/Categories"} title={"Categories"} />
+      <Navlink href={"/Locations"} title={"Locations"} />
     </footer>
   );
 }
