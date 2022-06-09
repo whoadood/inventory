@@ -33,7 +33,7 @@ const Home = ({ items }: { items: IServerItem[] }) => {
       <Section title="Inventory">
         <>
           <ItemTable items={items} />
-          <CreateButton to={"create/Item"} />
+          <CreateButton to={"/create/Item"} />
         </>
       </Section>
     </div>
