@@ -1,0 +1,6 @@
+.section {
+  width: calc(100vmin - 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
