@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  color: rgb(201, 201, 201);
+  font-size: 1rem;
+  padding: 0.5rem;
+  font-weight: 700;
+  background: rgb(0, 140, 140);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(15, 15, 15, 0.65);
+  transition: background-color 0.5s ease-in-out;
+  cursor: pointer;
+}
+.button:hover {
+  background: rgb(0, 60, 125);
+}

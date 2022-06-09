@@ -1,0 +1,9 @@
+.detailContainer {
+  max-width: 500px;
+}
+
+.detailSelect {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
