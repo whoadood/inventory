@@ -1,0 +1,25 @@
+.create {
+  margin-top: 2rem;
+}
+.link {
+  background: rgb(0, 145, 145);
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  font-size: 5rem;
+  box-shadow: 0 0 5px 0 rgba(15, 15, 15, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+.title {
+  font-size: 1rem;
+  position: absolute;
+  bottom: 5px;
+}
+.link:hover {
+  background: rgb(0, 60, 125);
+}
