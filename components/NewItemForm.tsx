@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import formStyles from "../styles/CreateForm.module.css";
 import NewItemInput from "./NewItemInput";
 import InputDetails from "./InputDetails";
+import FormItemSection from "./FormItemSection";
 // item
 //// price
 //// working
@@ -43,7 +44,33 @@ export default function NewItemForm() {
   return (
     <div>
       <form className={formStyles.form}>
-        <InputDetails />
+        <FormItemSection
+          fieldArr={[
+            { id: 1, name: "name", type: "type", label: "label" },
+            { id: 2, name: "name", type: "type", label: "label" },
+            { id: 3, name: "name", type: "type", label: "label" },
+          ]}
+        />
+        <InputDetails
+          details={[
+            { id: 1, name: "location 1", website: "website" },
+            { id: 2, name: "location 2", website: "website" },
+            { id: 3, name: "location 3", website: "website" },
+          ]}
+        />
+        <InputDetails
+          details={[
+            { id: 1, name: "location 1", website: "website" },
+            { id: 2, name: "location 2", website: "website" },
+            { id: 3, name: "location 3", website: "website" },
+          ]}
+        />
+        <FormItemSection
+          fieldArr={[
+            { id: 1, name: "name", type: "type", label: "label" },
+            { id: 2, name: "name", type: "type", label: "label" },
+          ]}
+        />
         <button className={formStyles.button}>Add an item</button>
       </form>
     </div>
