@@ -3,3 +3,22 @@
   flex-direction: column;
   margin-bottom: 1rem;
 }
+
+.label input {
+  all: unset;
+  background-color: rgb(59, 59, 59);
+  color: rgb(201, 201, 201);
+  border: none;
+  border-bottom: 1px solid rgb(0, 60, 125);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+.label input:focus {
+  border: 1px solid rgb(201, 201, 201);
+}
+
+/* box-shadow: 0 0 5px 0 rgba(15, 15, 15, 0.65); */
