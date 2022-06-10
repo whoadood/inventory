@@ -5,7 +5,6 @@ import type { IServerItem } from "../pages";
 import ItemRow from "./ItemRow";
 
 export default function ItemTable({ items }: { items: IServerItem[] }) {
-  console.log(items);
   const headers = ["id", "item", "type", "location", "price"];
   return (
     <table className={tableStyles.table}>

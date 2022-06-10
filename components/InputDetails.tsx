@@ -8,10 +8,16 @@ type InputDetails = {
   address: string;
 };
 
-export default function InputDetails({ details }: { details: InputDetails[] }) {
+export default function InputDetails({
+  details,
+  title
+}: {
+  details: InputDetails[];
+  title: string;
+}) {
   return (
     <div className={detailStyles.detailContainer}>
-      <h3>Input details</h3>
+      <h3>{title}</h3>
       <ul className={detailStyles.detailSelect}>
         {details.map((detail) => (
           <ItemDetailsCheckBox key={detail.name} item={detail} />

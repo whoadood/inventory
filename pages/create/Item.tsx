@@ -2,7 +2,7 @@ import React from "react";
 import NewItemForm from "../../components/NewItemForm";
 import Section from "../../layout/Section";
 
-export default function Item() {
+const Item = () => {
   return (
     <div>
       <Section title="Create Item">
@@ -10,4 +10,6 @@ export default function Item() {
       </Section>
     </div>
   );
-}
+};
+
+export default Item;
