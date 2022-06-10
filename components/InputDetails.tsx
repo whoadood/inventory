@@ -5,7 +5,7 @@ import detailStyles from "../styles/DetailsInput.module.css";
 type InputDetails = {
   id: number;
   name: string;
-  website: string;
+  address: string;
 };
 
 export default function InputDetails({ details }: { details: InputDetails[] }) {
