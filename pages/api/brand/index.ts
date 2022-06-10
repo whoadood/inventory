@@ -4,20 +4,21 @@ import type { Brand } from "@prisma/client";
 import prisma from "../../../lib/prisma";
 
 type Data = {
-  brands: Brand[];
+  brands: { id: number; name: string; address: string }[];
 };
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { itemInfo } = req.body;
-  const { itemDetails, brand, location } = itemInfo;
-  const { category } = itemDetails;
-
   const brands = await prisma.brand.findMany({
-    distinct: ["name"],
+    distinct: ["name"]
   });
+  const formatBrands = brands.map((brand) => ({
+    id: brand.id,
+    name: brand.name,
+    address: brand.website.split("https://www.")[1]
+  }));
 
-  res.status(200).json({ brands: brands });
+  res.status(200).json({ brands: formatBrands });
 }

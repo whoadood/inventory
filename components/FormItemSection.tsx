@@ -1,6 +1,6 @@
 import React from "react";
 import itemInputSectionStyles from "../styles/FormItemSection.module.css";
-import NewItemInput, { InputProps } from "./NewItemInput";
+import NewItemInput from "./NewItemInput";
 
 type FieldArr = {
   id: number;
@@ -10,23 +10,20 @@ type FieldArr = {
 };
 
 export default function FormItemSection({
-  fieldArr,
+  fieldArr
 }: {
   fieldArr: FieldArr[];
 }) {
   return (
-    <div className={itemInputSectionStyles.section}>
-      <h2>hello</h2>
-      <div className={itemInputSectionStyles.inputSection}>
-        {fieldArr.map((field) => (
-          <NewItemInput
-            key={field.id}
-            type={field.type}
-            label={field.label}
-            name={field.name}
-          />
-        ))}
-      </div>
+    <div className={itemInputSectionStyles.inputSection}>
+      {fieldArr.map((field) => (
+        <NewItemInput
+          key={field.id}
+          type={field.type}
+          label={field.label}
+          name={field.name}
+        />
+      ))}
     </div>
   );
 }
