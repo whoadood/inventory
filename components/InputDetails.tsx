@@ -36,6 +36,9 @@ export default function InputDetails({
 
   const toggleState = (e: any): void => {
     e.preventDefault();
+    if (newField) {
+      setActive(null);
+    }
     setNewField(!newField);
   };
 
@@ -74,7 +77,7 @@ export default function InputDetails({
         />
       )}
       <button onClick={toggleState} className={detailStyles.button}>
-        {newField ? <FiSettings /> : <BsCheckCircleFill />}
+        {newField ? <BsCheckCircleFill /> : <FiSettings />}
       </button>
     </div>
   );
