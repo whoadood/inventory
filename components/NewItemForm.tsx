@@ -28,16 +28,27 @@ export default function NewItemForm({ brands, locations }: ItemProps) {
           <FormItemSection
             fieldArr={[
               { id: 1, name: "name", type: "type", label: "label" },
-              { id: 2, name: "name", type: "type", label: "label" },
-              { id: 3, name: "name", type: "type", label: "label" }
+              { id: 2, name: "name", type: "type", label: "label" }
             ]}
           />
         </FormField>
         <FormField title="brands">
-          <InputDetails details={brands} />
+          <InputDetails
+            fieldArr={[
+              { id: 1, name: "name", type: "type", label: "label" },
+              { id: 1, name: "name", type: "type", label: "label" }
+            ]}
+            details={brands}
+          />
         </FormField>
         <FormField title="locations">
-          <InputDetails details={locations} />
+          <InputDetails
+            fieldArr={[
+              { id: 1, name: "name", type: "type", label: "label" },
+              { id: 1, name: "name", type: "type", label: "label" }
+            ]}
+            details={locations}
+          />
         </FormField>
         <button className={formStyles.button}>Add an item</button>
       </form>

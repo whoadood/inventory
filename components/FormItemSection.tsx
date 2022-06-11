@@ -2,7 +2,7 @@ import React from "react";
 import itemInputSectionStyles from "../styles/FormItemSection.module.css";
 import NewItemInput from "./NewItemInput";
 
-type FieldArr = {
+export type FieldArr = {
   id: number;
   type: string;
   name: string;

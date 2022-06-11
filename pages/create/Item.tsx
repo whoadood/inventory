@@ -11,7 +11,6 @@ export type ItemProps = {
 };
 
 const Item = ({ brands, locations }: ItemProps) => {
-  console.log(brands, locations);
   return (
     <div>
       <Section title="Create Item">
