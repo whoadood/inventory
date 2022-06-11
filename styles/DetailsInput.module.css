@@ -26,7 +26,7 @@
   transition: all 0.5s ease-in-out;
 }
 .button.active {
-  right: none;
+  right: unset;
   left: -10%;
   background: rgb(0, 60, 125);
 }

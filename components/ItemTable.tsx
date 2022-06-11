@@ -1,7 +1,7 @@
 import React from "react";
 import tableStyles from "../styles/ItemTable.module.css";
 import TableHead from "./TableHead";
-import type { IServerItem } from "../pages";
+import type { IServerItem } from "../pages/Items";
 import ItemRow from "./ItemRow";
 
 export default function ItemTable({ items }: { items: IServerItem[] }) {

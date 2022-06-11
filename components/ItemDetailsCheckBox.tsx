@@ -12,7 +12,6 @@ export default function ItemDetailsCheckBox({
   active: number | null;
   setActive: React.Dispatch<React.SetStateAction<number>>;
 }) {
-  console.log(active);
   return (
     <div
       style={{ opacity: `${active === item.id ? "100%" : "50%"}` }}

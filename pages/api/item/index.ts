@@ -11,67 +11,70 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { itemInfo } = req.body;
-  const { itemDetails, brand, location } = itemInfo;
-  const { category } = itemDetails;
+  const { item, location, brand, category } = req.body;
 
-  const newItem = await prisma.itemInfo.create({
-    data: {
-      price: itemInfo.price,
-      working: itemInfo.working,
-      Item: {
-        connectOrCreate: {
-          where: {
-            name: itemDetails.name,
-          },
-          create: {
-            name: itemDetails.name,
-            Category: {
-              connectOrCreate: {
-                where: {
-                  type: category.type,
-                },
-                create: {
-                  type: category.type,
-                },
-              },
-            },
-          },
-        },
-      },
-      Brand: {
-        connectOrCreate: {
-          where: {
-            name: brand.name,
-          },
-          create: {
-            name: brand.name,
-            website: brand.website,
-          },
-        },
-      },
-      Location: {
-        connectOrCreate: {
-          where: {
-            name: location.name,
-          },
-          create: {
-            name: location.name,
-            address: location.address,
-          },
-        },
-      },
-    },
-    include: {
-      Item: {
-        include: {
-          Category: true,
-        },
-      },
-      Brand: true,
-      Location: true,
-    },
-  });
+  console.log("item", item);
+  console.log("location", location);
+  console.log("brand", brand);
+  console.log("category", category);
 
-  res.status(200).json({ item: newItem });
+  // const newItem = await prisma.itemInfo.create({
+  //   data: {
+  //     price: item.price,
+  //     working: true,
+  //     Item: {
+  //       connectOrCreate: {
+  //         where: {
+  //           name: item.name
+  //         },
+  //         create: {
+  //           name: item.name,
+  //           Category: {
+  //             connectOrCreate: {
+  //               where: {
+  //                 type: category.type
+  //               },
+  //               create: {
+  //                 type: category.type
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     },
+  //     Brand: {
+  //       connectOrCreate: {
+  //         where: {
+  //           name: brand.name
+  //         },
+  //         create: {
+  //           name: brand.name,
+  //           website: brand.address
+  //         }
+  //       }
+  //     },
+  //     Location: {
+  //       connectOrCreate: {
+  //         where: {
+  //           name: location.name
+  //         },
+  //         create: {
+  //           name: location.name,
+  //           address: location.address
+  //         }
+  //       }
+  //     }
+  //   },
+  //   include: {
+  //     Item: {
+  //       include: {
+  //         Category: true
+  //       }
+  //     },
+  //     Brand: true,
+  //     Location: true
+  //   }
+  // });
+
+  // res.status(200).json({ item: newItem });
 }
