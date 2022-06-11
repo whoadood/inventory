@@ -3,11 +3,13 @@ import CheckBoxStyles from "../styles/ItemDetailsCheckBox.module.css";
 
 export default function ItemDetailsCheckBox({
   item,
+  onClick
 }: {
   item: { id: number; name: string; address: string };
+  onClick: any;
 }) {
   return (
-    <div className={CheckBoxStyles.boxContainer}>
+    <div onClick={(e) => onClick(item)} className={CheckBoxStyles.boxContainer}>
       <h4 className={CheckBoxStyles.id}>
         <div className={CheckBoxStyles.details}>
           <span>{item.name}</span>

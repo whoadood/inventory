@@ -12,28 +12,56 @@ type InputDetails = {
   address: string;
 };
 
+type InputFieldProps = {
+  details: InputDetails[];
+  fieldArr: FieldArr[];
+  state: any;
+  setState: React.Dispatch<React.SetStateAction<any>>;
+};
+
 export default function InputDetails({
   details,
-  fieldArr
+  fieldArr,
+  state,
+  setState
 }: {
   details: InputDetails[];
   fieldArr: FieldArr[];
+  state: any;
+  setState: React.Dispatch<React.SetStateAction<any>>;
 }) {
   const [newField, setNewField] = useState<boolean>(false);
+
   const toggleState = (e: any): void => {
     e.preventDefault();
     setNewField(!newField);
   };
+
+  const handleSelect = (item: InputDetails) => {
+    setState({
+      name: item.name,
+      address: item.address
+    });
+  };
+
   return (
     <div className={detailStyles.formSectionContainer}>
       {newField ? (
         <ul className={detailStyles.detailSelect}>
           {details.map((detail) => (
-            <ItemDetailsCheckBox key={detail.name} item={detail} />
+            <ItemDetailsCheckBox
+              onClick={handleSelect}
+              key={detail.name}
+              item={detail}
+            />
           ))}
         </ul>
       ) : (
-        <FormItemSection fieldArr={fieldArr} />
+        <FormItemSection
+          state={state}
+          setState={setState}
+          fieldArr={fieldArr}
+        />
       )}
       <button onClick={toggleState} className={detailStyles.button}>
         {newField ? <FiSettings /> : <BsCheckCircleFill />}
