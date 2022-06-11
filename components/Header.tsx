@@ -1,12 +1,12 @@
 import React from "react";
 import navStyles from "../styles/Header.module.css";
-import Navlink from "../components/Navlink";
+import NavLink from "../components/NavLink";
 
 export default function Header() {
   return (
     <header>
       <nav className={navStyles.navbar}>
-        <Navlink href={"/"} title={"Inventory"} />
+        <NavLink href={"/"} title={"Inventory"} />
       </nav>
     </header>
   );

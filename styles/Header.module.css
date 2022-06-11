@@ -13,12 +13,12 @@
   z-index: 99999;
 }
 
-.navlink {
+.navLink {
   padding: 1rem;
   border-radius: 5px;
-  transition: all ease-in-out 0.5s;
+  transition: background-color ease-in-out 0.5s;
 }
 
-.navlink:hover {
-  background: rgba(31, 30, 30, 0.486);
+.navLink:hover {
+  background-color: rgba(31, 30, 30, 1);
 }
