@@ -9,7 +9,7 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<any>
 ) {
   const { item, location, brand, category } = req.body;
 
@@ -77,4 +77,5 @@ export default async function handler(
   // });
 
   // res.status(200).json({ item: newItem });
+  res.json({ message: "working" });
 }

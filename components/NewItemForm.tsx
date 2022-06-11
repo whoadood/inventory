@@ -34,6 +34,35 @@ export default function NewItemForm({
       console.log("location", location);
       console.log("brand", brand);
       console.log("category", category);
+      if (item.name === "" || item.price === "") {
+        console.log("error item fields");
+        return;
+      }
+      if (category.type === "") {
+        console.log("category error");
+        return;
+      }
+      if (brand.name === "" || brand.address === "") {
+        console.log("brand field error");
+        return;
+      }
+      if (location.name === "" || location.address === "") {
+        console.log("location field error");
+        return;
+      }
+      const response = await fetch("/api/item/", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          item,
+          brand,
+          location,
+          category
+        })
+      });
+      const data = await response.json();
+
+      console.log("post req response", data);
     } catch (err) {
       console.log(err);
     }
