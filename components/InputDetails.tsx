@@ -8,8 +8,9 @@ import { BsCheckCircleFill } from "react-icons/bs";
 
 type InputDetails = {
   id: number;
-  name: string;
-  address: string;
+  name?: string;
+  address?: string;
+  type?: string;
 };
 
 type InputFieldProps = {
@@ -31,6 +32,7 @@ export default function InputDetails({
   setState: React.Dispatch<React.SetStateAction<any>>;
 }) {
   const [newField, setNewField] = useState<boolean>(false);
+  const [active, setActive] = useState<any>(null);
 
   const toggleState = (e: any): void => {
     e.preventDefault();
@@ -38,10 +40,16 @@ export default function InputDetails({
   };
 
   const handleSelect = (item: InputDetails) => {
-    setState({
-      name: item.name,
-      address: item.address
-    });
+    if (item.address) {
+      setState({
+        name: item.name,
+        address: item.address
+      });
+    } else {
+      setState({
+        type: item.type
+      });
+    }
   };
 
   return (
@@ -51,8 +59,10 @@ export default function InputDetails({
           {details.map((detail) => (
             <ItemDetailsCheckBox
               onClick={handleSelect}
-              key={detail.name}
+              key={detail.id}
               item={detail}
+              active={active}
+              setActive={setActive}
             />
           ))}
         </ul>

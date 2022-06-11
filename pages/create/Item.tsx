@@ -3,18 +3,23 @@ import NewItemForm from "../../components/NewItemForm";
 import Section from "../../layout/Section";
 import prisma from "../../lib/prisma";
 import { GetServerSideProps } from "next";
-import { Location } from "@prisma/client";
+import { Category, Location } from "@prisma/client";
 
 export type ItemProps = {
   brands: Location[];
   locations: Location[];
+  categories: Category[];
 };
 
-const Item = ({ brands, locations }: ItemProps) => {
+const Item = ({ brands, locations, categories }: ItemProps) => {
   return (
     <div>
       <Section title="Create Item">
-        <NewItemForm brands={brands} locations={locations} />
+        <NewItemForm
+          brands={brands}
+          locations={locations}
+          categories={categories}
+        />
       </Section>
     </div>
   );
@@ -37,10 +42,15 @@ export const getServerSideProps: GetServerSideProps = async () => {
     distinct: ["name"]
   });
 
+  const categories = await prisma.category.findMany({
+    distinct: ["type"]
+  });
+
   return {
     props: {
       brands: formatBrands,
-      locations
+      locations,
+      categories
     }
   };
 };
