@@ -1,18 +1,84 @@
 import ItemDetailsCheckBox from "./ItemDetailsCheckBox";
 import detailStyles from "../styles/DetailsInput.module.css";
+import { useState } from "react";
+import FormItemSection from "../components/FormItemSection";
+import type { FieldArr } from "./FormItemSection";
+import { FiSettings } from "react-icons/fi";
+import { BsCheckCircleFill } from "react-icons/bs";
 
 type InputDetails = {
   id: number;
-  name: string;
-  address: string;
+  name?: string;
+  address?: string;
+  type?: string;
 };
 
-export default function InputDetails({ details }: { details: InputDetails[] }) {
+type InputFieldProps = {
+  details: InputDetails[];
+  fieldArr: FieldArr[];
+  state: any;
+  setState: React.Dispatch<React.SetStateAction<any>>;
+};
+
+export default function InputDetails({
+  details,
+  fieldArr,
+  state,
+  setState
+}: {
+  details: InputDetails[];
+  fieldArr: FieldArr[];
+  state: any;
+  setState: React.Dispatch<React.SetStateAction<any>>;
+}) {
+  const [newField, setNewField] = useState<boolean>(false);
+  const [active, setActive] = useState<any>(null);
+
+  const toggleState = (e: any): void => {
+    e.preventDefault();
+    if (newField) {
+      setActive(null);
+    }
+    setNewField(!newField);
+  };
+
+  const handleSelect = (item: InputDetails) => {
+    if (item.address) {
+      setState({
+        name: item.name,
+        address: item.address
+      });
+    } else {
+      setState({
+        type: item.type
+      });
+    }
+  };
+
   return (
-    <ul className={detailStyles.detailSelect}>
-      {details.map((detail) => (
-        <ItemDetailsCheckBox key={detail.name} item={detail} />
-      ))}
-    </ul>
+    <div className={detailStyles.formSectionContainer}>
+      {newField ? (
+        <ul className={detailStyles.detailSelect}>
+          {details.map((detail) => (
+            <ItemDetailsCheckBox
+              onClick={handleSelect}
+              key={detail.id}
+              item={detail}
+              active={active}
+              setActive={setActive}
+            />
+          ))}
+        </ul>
+      ) : (
+        <FormItemSection
+          state={state}
+          setState={setState}
+          fieldArr={fieldArr}
+        />
+      )}
+      <button onClick={toggleState} className={detailStyles.button}>
+        {newField ? <BsCheckCircleFill /> : <FiSettings />}
+      </button>
+    </div>
   );
 }

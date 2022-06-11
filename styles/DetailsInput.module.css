@@ -7,3 +7,27 @@
   display: flex;
   flex-wrap: wrap;
 }
+.button {
+  background: rgb(0, 170, 170);
+  position: absolute;
+  top: -50px;
+  right: 0;
+  color: rgb(201, 201, 201);
+  font-weight: 700;
+  display: flex;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 2rem;
+  border: none;
+  box-shadow: 0 0 5px 0 rgba(15, 15, 15, 0.65);
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+.formSectionContainer {
+  position: relative;
+}
+.button:hover {
+  background: rgb(0, 60, 125);
+}
