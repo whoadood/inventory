@@ -57,6 +57,20 @@ export default function InputDetails({
 
   return (
     <div className={detailStyles.formSectionContainer}>
+      <div
+        className={`${detailStyles.buttonContainer} ${
+          newField ? detailStyles.active : ""
+        }`}
+      >
+        <button
+          onClick={toggleState}
+          className={`${detailStyles.button} ${
+            newField ? detailStyles.active : ""
+          }`}
+        >
+          {newField ? <BsCheckCircleFill /> : <FiSettings />}
+        </button>
+      </div>
       {newField ? (
         <ul className={detailStyles.detailSelect}>
           {details.map((detail) => (
@@ -76,9 +90,6 @@ export default function InputDetails({
           fieldArr={fieldArr}
         />
       )}
-      <button onClick={toggleState} className={detailStyles.button}>
-        {newField ? <BsCheckCircleFill /> : <FiSettings />}
-      </button>
     </div>
   );
 }

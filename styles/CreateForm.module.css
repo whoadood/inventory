@@ -3,6 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vmin;
+  max-width: 450px;
 }
 
 .button {
@@ -20,4 +22,11 @@
 }
 .button:hover {
   background: rgb(0, 60, 125);
+}
+@media screen and (max-width: 450px) {
+  .form {
+    max-width: 100vmin;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
 }

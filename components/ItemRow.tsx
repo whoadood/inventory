@@ -1,5 +1,5 @@
 import React from "react";
-import { IServerItem } from "../pages";
+import { IServerItem } from "../pages/Items";
 import tableStyles from "../styles/ItemTable.module.css";
 
 type ItemRowProps = {

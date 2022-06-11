@@ -1,5 +1,5 @@
 import React from "react";
-import type { IServerItem } from "../pages";
+import type { IServerItem } from "../pages/Items";
 import tableStyles from "../styles/ItemTable.module.css";
 
 export default function TableHead({ headers }: { headers: string[] }) {

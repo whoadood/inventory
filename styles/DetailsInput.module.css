@@ -10,8 +10,8 @@
 .button {
   background: rgb(0, 170, 170);
   position: absolute;
-  top: -50px;
-  right: 0;
+  top: -15%;
+  right: -10%;
   color: rgb(201, 201, 201);
   font-weight: 700;
   display: flex;
@@ -19,15 +19,35 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  font-size: 2rem;
+  font-size: 1rem;
   border: none;
   box-shadow: 0 0 5px 0 rgba(15, 15, 15, 0.65);
   cursor: pointer;
-  transition: background-color 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.button.active {
+  right: unset;
+  left: -10%;
+  background: rgb(0, 60, 125);
+}
+.button.active:hover {
+  background: rgb(0, 170, 170) !important;
 }
 .formSectionContainer {
   position: relative;
 }
 .button:hover {
   background: rgb(0, 60, 125);
+}
+.buttonContainer {
+  position: absolute;
+  top: -40px;
+  right: 30px;
+  height: 1.5rem;
+  width: 50px;
+  border-radius: 15px;
+  background: rgb(112, 112, 112);
+}
+.active {
+  background: rgba(15, 15, 15, 0.65);
 }
