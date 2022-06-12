@@ -30,10 +30,12 @@ export default function NewItemForm({
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
-      console.log("item", item);
-      console.log("location", location);
-      console.log("brand", brand);
-      console.log("category", category);
+
+      // console.log("item", item);
+      // console.log("location", location);
+      // console.log("brand", brand);
+      // console.log("category", category);
+
       if (item.name === "" || item.price === "") {
         console.log("error item fields");
         return;
