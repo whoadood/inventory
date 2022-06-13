@@ -1,11 +1,19 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import prisma from "../lib/prisma";
+import Section from "../layout/Section";
+import ItemTable from "../components/ItemTable";
 
 export default function Brands({ brands }: { brands: any }) {
   console.log("brands", brands);
 
-  return <div>Brands</div>;
+  return (
+    <div>
+      <Section title="Brands">
+        <ItemTable items={brands} headers={["id", "name", "item qty"]} />
+      </Section>
+    </div>
+  );
 }
 export const getServerSideProps: GetServerSideProps = async () => {
   const brands = await prisma.brand.findMany({

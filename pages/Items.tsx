@@ -26,7 +26,10 @@ const Items = ({ items }: { items: IServerItem[] }) => {
     <div>
       <Section title="Inventory">
         <>
-          <ItemTable items={items} />
+          <ItemTable
+            items={items}
+            headers={["id", "item", "type", "location", "price"]}
+          />
           <CreateButton to={"/create/Item"} />
         </>
       </Section>
