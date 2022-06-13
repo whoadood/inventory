@@ -43,3 +43,16 @@
   color: rgb(112, 112, 112);
   font-size: 0.8rem;
 }
+
+.details {
+  margin: 0 auto;
+  max-width: 200px;
+  border-bottom: 1px solid rgba(15, 15, 15, 0.5);
+}
+.details div {
+  display: flex;
+  justify-content: space-between;
+}
+.details:last-child {
+  border-bottom: none;
+}

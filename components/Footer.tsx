@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className={footerStyles.footer}>
       <NavLink href={"/Items"} title={"Items"} />
-      <NavLink href={"/Categories"} title={"Categories"} />
+      <NavLink href={"/Brands"} title={"Brands"} />
       <NavLink href={"/Locations"} title={"Locations"} />
     </footer>
   );
