@@ -17,7 +17,9 @@ export default function ItemRow({ item }: ItemRowProps) {
 
         <td>
           <p>{item.name}</p>
-          <span>{item.website.split("www.")[1]}</span>
+          <span>
+            {item.website ? item.website.split("www.")[1] : item.address}
+          </span>
         </td>
         <td>
           {Object.keys(item.ItemInfo).map((key) => (
