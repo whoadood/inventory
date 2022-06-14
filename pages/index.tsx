@@ -1,6 +1,28 @@
 import Head from "next/head";
+import prisma from "../lib/prisma";
+import { GetServerSideProps } from "next";
+// dashboard
 
-export default function Home() {
+// totals
+//// total items
+//// total locations
+
+// price points
+//// avg item price
+//// min price
+//// max price
+
+// most used
+//// most used item
+// total of that type
+
+// charts
+//// doughnut chart for item types
+//// brand item count bar chart
+//// locations item count bar chart
+
+export default function Home({ data }: { data: any }) {
+  console.log(data);
   return (
     <div>
       <Head>
@@ -12,3 +34,24 @@ export default function Home() {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const data = await prisma.category.findMany({
+    select: {
+      id: true,
+      type: true,
+      Item: {
+        select: {
+          name: true,
+          _count: {}
+        }
+      }
+    }
+  });
+
+  return {
+    props: {
+      data: data
+    }
+  };
+};
