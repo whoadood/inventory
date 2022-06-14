@@ -5,6 +5,7 @@ import { Brand, Category, Location } from "@prisma/client";
 import ItemTable from "../components/ItemTable";
 import Section from "../layout/Section";
 import CreateButton from "../components/CreateButton";
+import useWindowSize from "../hooks/useWindowSize";
 
 export type IServerItem = {
   id: number;
@@ -20,6 +21,7 @@ export type IServerItemDetails = {
 };
 
 const Items = ({ items }: { items: IServerItem[] }) => {
+  const { windowWidth } = useWindowSize();
   console.log("items", items);
 
   return (
@@ -28,7 +30,11 @@ const Items = ({ items }: { items: IServerItem[] }) => {
         <>
           <ItemTable
             items={items}
-            headers={["id", "item", "type", "location", "price"]}
+            headers={
+              windowWidth > 600
+                ? ["id", "item", "type", "location", "price"]
+                : ["item", "type", "location"]
+            }
           />
           <CreateButton to={"/create/Item"} />
         </>

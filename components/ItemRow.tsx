@@ -1,12 +1,15 @@
 import React from "react";
 import { IServerItem } from "../pages/Items";
 import tableStyles from "../styles/ItemTable.module.css";
+import useWindowSize from "../hooks/useWindowSize";
 
 type ItemRowProps = {
   item: IServerItem | any;
 };
 
 export default function ItemRow({ item }: ItemRowProps) {
+  const { windowWidth } = useWindowSize();
+
   if (!item.price) {
     return (
       <tr className={tableStyles.iRow}>
@@ -31,7 +34,7 @@ export default function ItemRow({ item }: ItemRowProps) {
   } else {
     return (
       <tr className={tableStyles.iRow}>
-        <td>{item.id}</td>
+        {windowWidth > 600 && <td>{item.id}</td>}
 
         <td>
           <p>{item.Item.name}</p>
@@ -45,7 +48,7 @@ export default function ItemRow({ item }: ItemRowProps) {
           <span>{item.Location.address}</span>
         </td>
 
-        <td>${item.price.toFixed(2)}</td>
+        {windowWidth > 600 && <td>${item.price.toFixed(2)}</td>}
       </tr>
     );
   }
