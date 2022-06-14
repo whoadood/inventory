@@ -1,6 +1,8 @@
 import React from "react";
 import "chart.js/auto";
 import { Chart } from "react-chartjs-2";
+import Section from "../layout/Section";
+import chartStyles from "../styles/chart.module.css";
 
 export default function DoughnutChart({ data }: { data: any }) {
   const getLabels = data.map((item: any) => item.name);
@@ -18,9 +20,10 @@ export default function DoughnutChart({ data }: { data: any }) {
   };
 
   return (
-    <div>
-      <h1>Item Type</h1>
-      <Chart type="doughnut" data={formatData} />
-    </div>
+    <Section title="Item Type">
+      <div className={chartStyles.chartSection}>
+        <Chart type="doughnut" data={formatData} />
+      </div>
+    </Section>
   );
 }
