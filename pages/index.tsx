@@ -1,6 +1,7 @@
 import Head from "next/head";
 import prisma from "../lib/prisma";
 import { GetServerSideProps } from "next";
+import DoughnutChart from "../charts/Doughnut";
 // dashboard
 
 // totals
@@ -17,12 +18,11 @@ import { GetServerSideProps } from "next";
 // total of that type
 
 // charts
-//// doughnut chart for item types
+//// doughnut chart for item types ////
 //// brand item count bar chart
 //// locations item count bar chart
 
-export default function Home({ data }: { data: any }) {
-  console.log(data);
+export default function Home({ itemTypeData }: { itemTypeData: any }) {
   return (
     <div>
       <Head>
@@ -31,19 +31,19 @@ export default function Home({ data }: { data: any }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h2>Home</h2>
+      <DoughnutChart data={itemTypeData} />
     </div>
   );
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const data = await prisma.category.findMany({
+  const itemTypeData = await prisma.item.findMany({
     select: {
       id: true,
-      type: true,
-      Item: {
+      name: true,
+      _count: {
         select: {
-          name: true,
-          _count: {}
+          ItemInfo: true
         }
       }
     }
@@ -51,7 +51,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      data: data
+      itemTypeData: itemTypeData
     }
   };
 };
