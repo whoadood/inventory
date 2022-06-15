@@ -3,7 +3,7 @@ import sectionStyles from "../styles/Section.module.css";
 
 export default function Section({
   title,
-  children,
+  children
 }: {
   title: string;
   children: React.ReactElement;

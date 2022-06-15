@@ -22,7 +22,7 @@ export default function DoughnutChart({ data }: { data: any }) {
   return (
     <Section title="Item Type">
       <div className={chartStyles.chartSection}>
-        <Chart type="doughnut" data={formatData} />
+        <Chart type="doughnut" options={{ color: "white" }} data={formatData} />
       </div>
     </Section>
   );
