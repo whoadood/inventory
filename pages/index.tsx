@@ -2,6 +2,8 @@ import Head from "next/head";
 import prisma from "../lib/prisma";
 import { GetServerSideProps } from "next";
 import DoughnutChart from "../charts/Doughnut";
+import LineChart from "../charts/LineChart";
+
 // dashboard
 
 // totals
@@ -22,7 +24,13 @@ import DoughnutChart from "../charts/Doughnut";
 //// brand item count bar chart
 //// locations item count bar chart
 
-export default function Home({ itemTypeData }: { itemTypeData: any }) {
+export default function Home({
+  itemTypeData,
+  locationItems
+}: {
+  itemTypeData: any;
+  locationItems: any;
+}) {
   return (
     <div>
       <Head>
@@ -32,6 +40,7 @@ export default function Home({ itemTypeData }: { itemTypeData: any }) {
       </Head>
       <h2>Home</h2>
       <DoughnutChart data={itemTypeData} />
+      <LineChart locationItems={locationItems} />
     </div>
   );
 }
@@ -49,9 +58,29 @@ export const getServerSideProps: GetServerSideProps = async () => {
     }
   });
 
+  const locationItems = await prisma.location.findMany({
+    select: {
+      name: true,
+      ItemInfo: {
+        select: {
+          Item: {
+            select: {
+              Category: {
+                select: {
+                  type: true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+
   return {
     props: {
-      itemTypeData: itemTypeData
+      itemTypeData: itemTypeData,
+      locationItems: locationItems
     }
   };
 };
