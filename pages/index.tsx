@@ -2,7 +2,7 @@ import Head from "next/head";
 import prisma from "../lib/prisma";
 import { GetServerSideProps } from "next";
 import DoughnutChart from "../charts/Doughnut";
-import LineChart from "../charts/LineChart";
+import BarChart from "../charts/Bar";
 
 // dashboard
 
@@ -40,7 +40,7 @@ export default function Home({
       </Head>
       <h2>Home</h2>
       <DoughnutChart data={itemTypeData} />
-      <LineChart locationItems={locationItems} />
+      <BarChart locationItems={locationItems} />
     </div>
   );
 }

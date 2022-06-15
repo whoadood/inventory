@@ -3,9 +3,8 @@ import "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 import Section from "../layout/Section";
 import chartStyles from "../styles/chart.module.css";
-import { withRouter } from "next/router";
 
-export default function LineChart({ locationItems }: { locationItems: any }) {
+export default function BarChart({ locationItems }: { locationItems: any }) {
   const formatLocation = locationItems.map((location: any) => {
     return {
       ...location,
@@ -48,6 +47,7 @@ export default function LineChart({ locationItems }: { locationItems: any }) {
       <div className={chartStyles.chartSection}>
         <Chart
           type="bar"
+          options={{ indexAxis: "y", color: "white" }}
           data={{
             labels: labels,
             datasets: dataset
