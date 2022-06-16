@@ -11,9 +11,6 @@ export default function DoughnutChart({ data }: { data: any }) {
     (item: any, i: number) => `rgb(0, ${60 - i * 35}, ${125 - i * 25})`
   );
 
-  console.log("chart data", getLabels);
-  console.log("chart data", getData);
-
   const formatData = {
     labels: getLabels,
     datasets: [{ data: getData, backgroundColor: getColors }]
