@@ -5,8 +5,6 @@ import Section from "../layout/Section";
 import ItemTable from "../components/ItemTable";
 
 export default function Brands({ brands }: { brands: any }) {
-  console.log("brands", brands);
-
   return (
     <div>
       <Section title="Brands">

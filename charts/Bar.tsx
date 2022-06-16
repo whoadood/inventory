@@ -19,7 +19,6 @@ export default function BarChart({ locationItems }: { locationItems: any }) {
     };
   });
 
-  console.log(formatLocation);
   const labels = [
     // @ts-ignore
     ...new Set(
@@ -38,9 +37,6 @@ export default function BarChart({ locationItems }: { locationItems: any }) {
       borderColor: `rgb(0, ${60 - i * 35}, ${125 - i * 25})`
     };
   });
-  data: labels.map((label: any) => {});
-
-  console.log("labels", labels);
 
   return (
     <Section title="Locations">

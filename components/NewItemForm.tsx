@@ -31,11 +31,6 @@ export default function NewItemForm({
     try {
       e.preventDefault();
 
-      // console.log("item", item);
-      // console.log("location", location);
-      // console.log("brand", brand);
-      // console.log("category", category);
-
       if (item.name === "" || item.price === "") {
         console.log("error item fields");
         return;

@@ -22,7 +22,6 @@ export type IServerItemDetails = {
 
 const Items = ({ items }: { items: IServerItem[] }) => {
   const { windowWidth } = useWindowSize();
-  console.log("items", items);
 
   return (
     <div>
