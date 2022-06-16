@@ -18,8 +18,6 @@ export default function Home({
   prices: any;
   most: any;
 }) {
-  console.log(most);
-
   return (
     <div>
       <Head>
