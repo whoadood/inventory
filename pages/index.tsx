@@ -18,6 +18,8 @@ export default function Home({
   prices: any;
   most: any;
 }) {
+  console.log(most);
+
   return (
     <div>
       <Head>
@@ -102,8 +104,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
       };
     })
     .reduce((acc: any, cur: any) => {
-      if (acc[cur.brand]) {
+      if (acc[cur.brand] && acc[cur.brand].type === cur.type) {
         acc[cur.brand] = { ...cur, count: (acc[cur.brand].count += 1) };
+      } else if (acc[cur.brand] && acc[cur.brand].type !== cur.type) {
+        acc[`${cur.brand}_${cur.type}`] = { ...cur, count: 1 };
       } else {
         acc[cur.brand] = { ...cur, count: 1 };
       }
