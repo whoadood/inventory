@@ -1,5 +1,5 @@
 import Head from "next/head";
-import prisma from "../lib/prisma";
+import { prisma } from "../lib/prisma";
 import { GetServerSideProps } from "next";
 import DoughnutChart from "../charts/Doughnut";
 import BarChart from "../charts/Bar";
