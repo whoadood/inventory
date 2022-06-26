@@ -1,7 +1,7 @@
 import React from "react";
 import NewItemForm from "../../components/NewItemForm";
 import Section from "../../layout/Section";
-import prisma from "../../lib/prisma";
+import { prisma } from "../../lib/prisma";
 import { GetServerSideProps } from "next";
 import { Category, Location } from "@prisma/client";
 
