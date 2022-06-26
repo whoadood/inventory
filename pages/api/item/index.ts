@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { ItemInfo } from "@prisma/client";
-import prisma from "../../../lib/prisma";
+import { prisma } from "../../../lib/prisma";
 
 type Data = {
   item: ItemInfo;
