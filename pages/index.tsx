@@ -30,9 +30,9 @@ export default function Home({
           <div className={homeStyles.charts}>
             <Most item={most} />
             <Totals
-              avg={prices._avg.price.toFixed(2)}
-              min={prices._min.price.toFixed(2)}
-              max={prices._max.price.toFixed(2)}
+              avg={prices?._avg.price.toFixed(2)}
+              min={prices?._min.price.toFixed(2)}
+              max={prices?._max.price.toFixed(2)}
             />
           </div>
 
