@@ -121,7 +121,7 @@ export default function NewItemForm({
                 name: "address",
                 type: "text",
                 label: "address",
-                value: brand.address.split("www.")[1]
+                value: brand.address
               }
             ]}
             details={brands}
