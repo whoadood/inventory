@@ -32,11 +32,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
     distinct: ["name"]
   });
 
-  // const formatBrands = brands.map((brand) => ({
-  //   id: brand.id,
-  //   name: brand.name,
-  //   address: brand.website
-  // }));
+  const formatBrands = brands.map((brand) => ({
+    id: brand.id,
+    name: brand.name,
+    address: brand.website
+  }));
 
   const locations = await prisma.location.findMany({
     distinct: ["name"]
@@ -48,7 +48,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      brands,
+      brands: formatBrands,
       locations,
       categories
     }

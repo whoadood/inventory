@@ -27,7 +27,9 @@ export default function ItemDetailsCheckBox({
           <span>{item.name ? item.name : item.type}</span>
           {item.address && (
             <span className={CheckBoxStyles.accent}>
-              {item.address && item.address}
+              {item.address.match("www.")
+                ? item.address.split("www.")[1]
+                : item.address}
             </span>
           )}
         </div>

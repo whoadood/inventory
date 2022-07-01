@@ -27,6 +27,16 @@ export default function NewItemForm({
     address: ""
   });
 
+  const resetForm = () => {
+    setItem({
+      price: "",
+      name: ""
+    });
+    setCategory({ type: "" });
+    setLocation({ name: "", address: "" });
+    setBrand({ name: "", address: "" });
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
@@ -62,6 +72,8 @@ export default function NewItemForm({
       console.log("post req response", data);
     } catch (err) {
       console.log(err);
+    } finally {
+      resetForm();
     }
   };
 
@@ -121,7 +133,7 @@ export default function NewItemForm({
                 name: "address",
                 type: "text",
                 label: "address",
-                value: brand.address.split("www.")[1]
+                value: brand.address
               }
             ]}
             details={brands}
