@@ -22,7 +22,7 @@ jobs:
             if (matches && matches.length) {
               previewUrl = matches[0];
             }
-            console.log(previewUrl != '' ? `Preview url found: ${previewUrl}` : 'Preview url not found');
+            console.log(previewUrl !== '' ? 'Preview url found: ' + previewUrl : 'Preview url not found');
             core.setOutput('vercel_preview_url', previewUrl);
             
       - name: Add comment to PR
