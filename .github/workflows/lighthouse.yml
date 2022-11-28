@@ -21,9 +21,8 @@ jobs:
             let previewUrl = "";
             if (matches && matches.length) {
               previewUrl = matches[0];
-              console.log('Preview url found:', previewUrl);
             }
-            console.log("No preview url found.");
+            console.log(`${previewUrl != '' ? previewUrl : 'Preview url not found'}`);
             core.setOutput('vercel_preview_url', previewUrl);
             
       - name: Add comment to PR
